@@ -494,6 +494,19 @@ export default function Home() {
     );
   }
 
+  function resetOfferte() {
+    if (!window.confirm("Ricarico il piano precompilato dal master? Sovrascrive le offerte attuali.")) return;
+    const pre = players
+      .filter((p) => p.offerta != null)
+      .map<Offerta>((p) => ({
+        nome: p.nome,
+        ruolo: p.ruolo,
+        offerta: p.offerta as number,
+        esito: "pending",
+      }));
+    setOfferte(pre);
+  }
+
   function openModal(p: Player) {
     setModalPlayer(p);
     setImporto(p.base != null ? String(p.base) : "");
@@ -681,6 +694,7 @@ export default function Home() {
           ciclaEsito={ciclaEsito}
           rimuoviOfferta={rimuoviOfferta}
           budget={BUDGET}
+          resetOfferte={resetOfferte}
         />
       ) : (
         <>

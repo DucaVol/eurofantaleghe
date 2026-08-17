@@ -67,6 +67,7 @@ export default function Buste({
   ciclaEsito,
   rimuoviOfferta,
   budget,
+  resetOfferte,
 }: {
   players: Player[];
   offerte: Offerta[];
@@ -74,6 +75,7 @@ export default function Buste({
   ciclaEsito: (i: number) => void;
   rimuoviOfferta: (i: number) => void;
   budget: number;
+  resetOfferte: () => void;
 }) {
   const [modulo, setModulo] = useModulo();
 
@@ -291,12 +293,23 @@ export default function Buste({
           <span>
             In busta: <strong className="big">{totOfferte}</strong> cr
           </span>
-          <span className={budget - totOfferte < 0 ? "over" : "ok"}>
-            Rimanenti: <strong className="big">{budget - totOfferte}</strong> cr
+          <span className={totOfferte > budget ? "over" : "ok"}>
+            {totOfferte > budget ? (
+              <>
+                Sfori di <strong className="big">{totOfferte - budget}</strong> cr
+              </>
+            ) : (
+              <>
+                Rimanenti: <strong className="big">{budget - totOfferte}</strong> cr
+              </>
+            )}
           </span>
-          {totOfferte > budget && (
-            <span className="over">Sfori di {totOfferte - budget} cr</span>
-          )}
+          <span>
+            Budget: <strong className="big">{budget}</strong> cr
+          </span>
+          <button className="reset-btn" onClick={resetOfferte} title="Ricarica il piano precompilato dal master">
+            Ricarica piano
+          </button>
         </div>
         {ORDINE.map((r) => {
           const list = perRuolo[r] || [];
