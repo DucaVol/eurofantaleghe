@@ -3,7 +3,7 @@
 import json, openpyxl
 
 SRC = "/home/ubuntu/Downloads/euroleghe_master_classic_fotmob_2026_27_final_clean.xlsx"
-DATA = "/tmp/euroleghe_ex_squadra.json"
+DATA = "/tmp/euroleghe_ex_squadra_v2.json"
 
 data = json.load(open(DATA))
 

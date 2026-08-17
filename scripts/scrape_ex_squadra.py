@@ -3,7 +3,7 @@
 import json, urllib.request, time, openpyxl
 
 SRC = "/home/ubuntu/Downloads/euroleghe_master_classic_fotmob_2026_27_final_clean.xlsx"
-OUT = "/tmp/euroleghe_ex_squadra.json"
+OUT = "/tmp/euroleghe_ex_squadra_v2.json"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -36,22 +36,32 @@ def to_date(v):
     return str(v)[:10]
 
 def find_team_2526(entries, primary_team):
-    candidates = []
+    S_START = "2025-08-01"
+    S_END = "2026-06-30"
+    cands = []
     for t in entries or []:
         if t.get("active"):
             continue
+        team = (t.get("team") or "").strip()
+        if team.lower() == (primary_team or "").strip().lower():
+            continue
         start = to_date(t.get("startDate"))
-        end = to_date(t.get("endDate"))
-        if start and start <= TARGET and (not end or end >= TARGET):
-            candidates.append(t)
-    if not candidates:
+        end = to_date(t.get("endDate")) or "9999-12-31"
+        if start and start <= S_END and end >= S_START:
+            ov_s = max(start, S_START)
+            ov_e = min(end, S_END)
+            cands.append((t, ov_s, ov_e))
+    if not cands:
         return None
-    for t in candidates:
+    for t, _, _ in cands:
         tt = t.get("transferType") or {}
         if tt.get("localizationKey") == "on_loan":
             return t.get("team")
-    candidates.sort(key=lambda t: to_date(t.get("endDate")), reverse=True)
-    return candidates[0].get("team")
+    from datetime import date
+    def dur(c):
+        return (date.fromisoformat(c[2]) - date.fromisoformat(c[1])).days
+    cands.sort(key=dur, reverse=True)
+    return cands[0][0].get("team")
 
 wb = openpyxl.load_workbook(SRC, data_only=True)
 ws = wb["Solo_Torneo"]
