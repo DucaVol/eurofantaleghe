@@ -95,6 +95,7 @@ td.cell-bad { color: #f87171; background: rgba(239, 68, 68, 0.10); }
 .badge.new { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
 .badge.inj { background: rgba(239, 68, 68, 0.15); color: var(--bad); }
 .badge.assistman { background: rgba(34, 211, 238, 0.15); color: #22d3ee; }
+.badge.punizioni { background: rgba(167, 139, 250, 0.15); color: #a78bfa; }
 .badge.rigorista { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
 .badge.pararigori { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
 .badge.cartellini { background: rgba(239, 68, 68, 0.15); color: #f87171; }
@@ -103,6 +104,7 @@ td.cell-bad { color: #f87171; background: rgba(239, 68, 68, 0.10); }
 .badge-filter:hover { border-color: rgba(255,255,255,0.4); }
 .badge-filter.active { border-color: #22d3ee; }
 .badge-filter.assistman { background: rgba(34, 211, 238, 0.12); color: #22d3ee; }
+.badge-filter.punizioni { background: rgba(167, 139, 250, 0.12); color: #a78bfa; }
 .badge-filter.rigorista { background: rgba(245, 158, 11, 0.12); color: #f59e0b; }
 .badge-filter.pararigori { background: rgba(96, 165, 250, 0.12); color: #60a5fa; }
 .badge-filter.cartellini { background: rgba(239, 68, 68, 0.12); color: #f87171; }
