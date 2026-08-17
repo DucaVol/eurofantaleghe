@@ -514,6 +514,10 @@ export default function Home() {
   const filtered = useMemo(() => {
     let list = players.filter((p) => p.ruolo === role);
     if (team) list = list.filter((p) => p.squadra === team);
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      list = list.filter((p) => p.nome.toLowerCase().includes(q));
+    }
     if (badgeFilter) {
       const b = BADGES.find((x) => x.key === badgeFilter);
       if (b) list = list.filter((p) => b.test(p));
@@ -530,7 +534,7 @@ export default function Home() {
       return String(av).localeCompare(String(bv), "it") * dir;
     });
     return list;
-  }, [players, role, team, badgeFilter, sortKey, sortDir]);
+  }, [players, role, team, badgeFilter, sortKey, sortDir, query]);
 
   const queryMatch = useMemo(() => {
     const q = query.trim().toLowerCase();
