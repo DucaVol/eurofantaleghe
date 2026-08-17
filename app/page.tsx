@@ -33,6 +33,9 @@ type Player = {
   occasioni_create: number | null;
   big_chances: number | null;
   tocchi_area: number | null;
+  clean_sheet: number | null;
+  gol_subiti: number | null;
+  rigori_parati: number | null;
   injury_status: string | null;
   score_finale: number | null;
   categoria: string | null;
@@ -70,7 +73,7 @@ const COLUMNS: Col[] = [
   { key: "nome", label: "Giocatore", desc: "Nome nel listone EuroLeghe 2026/27" },
   { key: "squadra", label: "Squadra", desc: "Squadra di appartenenza nel listone" },
   { key: "quotazione", label: "Quot.", num: true, dec: 0, desc: "Quotazione ufficiale" },
-  { key: "base", label: "Base", num: true, dec: 0, desc: "Prezzo base busta = metà quotazione (ceil)" },
+  { key: "base", label: "½ Quot.", num: true, dec: 0, desc: "Metà quotazione (ceil) — riferimento per il mercato inoltrato; in busta si parte da 1" },
   { key: "fvm", label: "FVM", num: true, dec: 0, desc: "Fanta Valore di Mercato" },
   { key: "rating", label: "MV", num: true, dec: 2, desc: "Media voto FotMob 2025/26 (NON è il fantavoto)" },
   { key: "eta", label: "Età", num: true, dec: 0, desc: "Età del giocatore" },
@@ -88,6 +91,9 @@ const COLUMNS: Col[] = [
   { key: "occasioni_create", label: "Occ. create", num: true, dec: 0, showFor: ["C"], desc: "Occasioni da gol create" },
   { key: "big_chances", label: "Big chance", num: true, dec: 0, showFor: ["C", "A"], desc: "Grandi occasioni create" },
   { key: "tocchi_area", label: "Tocchi area", num: true, dec: 0, showFor: ["D", "C", "A"], desc: "Tocchi in area avversaria" },
+  { key: "clean_sheet", label: "Clean sheet", num: true, dec: 0, showFor: ["P"], desc: "Porte inviolate nella 2025/26 (bonus imbattibilità +1)" },
+  { key: "rigori_parati", label: "Parati", num: true, dec: 0, showFor: ["P"], desc: "Rigori parati nella 2025/26 (bonus +3 ciascuno)" },
+  { key: "gol_subiti", label: "Subiti", num: true, dec: 0, showFor: ["P"], desc: "Gol subiti nella 2025/26 (meno sono, meglio è)" },
   { key: "gialli", label: "Gialli", num: true, dec: 0, desc: "Ammonizioni (malus)" },
   { key: "rossi", label: "Rossi", num: true, dec: 0, desc: "Espulsioni (malus)" },
   { key: "score_finale", label: "Score", num: true, dec: 0, desc: "Score finale calcolato (continuità + bonus + valore + rischio)" },
@@ -123,6 +129,9 @@ const COLOR_DIR: Record<string, "asc" | "desc"> = {
   occasioni_create: "asc",
   big_chances: "asc",
   tocchi_area: "asc",
+  clean_sheet: "asc",
+  rigori_parati: "asc",
+  gol_subiti: "desc",
   score_finale: "asc",
   gialli: "desc",
   rossi: "desc",
