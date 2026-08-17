@@ -117,7 +117,7 @@ def scrape_player(fid):
     fss = d.get("firstSeasonStats") or {}
     sm = fss.get("shotmap") or []
 
-    presenze = num(stat_val(ml_stats, "appearances"))
+    presenze = num(stat_val(ml_stats, "matches_uppercase"))  # typo FotMob, NON "appearances"
     minuti = num(stat_val(ml_stats, "minutes_played"))
 
     pos = d.get("positionDescription") or {}
