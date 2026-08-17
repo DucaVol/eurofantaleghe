@@ -51,6 +51,22 @@ type Player = {
   fotmob_id: number | null;
 };
 
+type ConsigliSquadra = {
+  squadra: string;
+  data: string;
+  consigliati: string[];
+  sconsigliati: string[];
+  nota?: string;
+  tiratori?: string;
+};
+
+type ConsigliData = {
+  aggiornato: string;
+  fonte: string;
+  squadre: ConsigliSquadra[];
+  infortunati: string[];
+};
+
 type Col = {
   key: keyof Player | "nome" | "squadra";
   label: string;
@@ -331,6 +347,56 @@ function ScoreInfo() {
   );
 }
 
+function Consigli() {
+  const [data, setData] = useState<ConsigliData | null>(null);
+  useEffect(() => {
+    fetch("/data/consigli.json")
+      .then((r) => r.json())
+      .then(setData)
+      .catch(() => setData(null));
+  }, []);
+
+  if (!data) return <div style={{ padding: 16, color: "#888" }}>Caricamento…</div>;
+
+  const squadraBox = { border: "1px solid #333", borderRadius: 8, padding: "12px 14px", margin: "12px 0" } as const;
+  const title = { margin: "0 0 8px", fontSize: 15, display: "flex", justifyContent: "space-between", alignItems: "baseline" } as const;
+  const col = { flex: 1, minWidth: 240 } as const;
+  const item = { padding: "3px 0", fontSize: 13.5, lineHeight: 1.4 } as const;
+
+  return (
+    <div style={{ maxWidth: 860, margin: "0 auto", padding: 16 }}>
+      <h2>Consigli dagli articoli</h2>
+      <p style={{ color: "#888", fontSize: 13 }}>
+        Fonte: {data.fonte} · aggiornato {data.aggiornato}. Consigliati/sconsigliati estratti dalle guide all'asta.
+      </p>
+      {data.squadre.map((s) => (
+        <div key={s.squadra} style={squadraBox}>
+          <div style={title}>
+            <strong>{s.squadra}</strong>
+            <span style={{ color: "#777", fontSize: 12 }}>{s.data}</span>
+          </div>
+          <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+            <div style={col}>
+              <div style={{ color: "#7c7", fontWeight: 600, marginBottom: 4 }}>Consigliati</div>
+              {s.consigliati.map((c) => <div key={c} style={item}>• {c}</div>)}
+            </div>
+            <div style={col}>
+              <div style={{ color: "#e66", fontWeight: 600, marginBottom: 4 }}>Sconsigliati</div>
+              {s.sconsigliati.map((c) => <div key={c} style={item}>• {c}</div>)}
+            </div>
+          </div>
+          {s.nota && <div style={{ color: "#999", fontSize: 12.5, marginTop: 6 }}>Nota: {s.nota}</div>}
+          {s.tiratori && <div style={{ color: "#cb9", fontSize: 12.5, marginTop: 4 }}>Tiratori calci da fermo: {s.tiratori}</div>}
+        </div>
+      ))}
+      <h3 style={{ margin: "20px 0 8px", fontSize: 15 }}>Infortunati di lungo corso</h3>
+      <div style={squadraBox}>
+        {data.infortunati.map((i) => <div key={i} style={item}>• {i}</div>)}
+      </div>
+    </div>
+  );
+}
+
 export default function Home() {
   const [players, setPlayers] = useState<Player[]>([]);
   const [loading, setLoading] = useState(true);
@@ -572,6 +638,12 @@ export default function Home() {
         >
           Come funziona lo score
         </button>
+        <button
+          className={"tab" + (role === "consigli" ? " active" : "")}
+          onClick={() => setRole("consigli")}
+        >
+          Consigli
+        </button>
         {RUOLI.map((r) => {
           const n = players.filter((p) => p.ruolo === r.key).length;
           return (
@@ -594,6 +666,8 @@ export default function Home() {
 
       {role === "info" ? (
         <ScoreInfo />
+      ) : role === "consigli" ? (
+        <Consigli />
       ) : role === "rosa" ? (
         <Buste
           players={players}

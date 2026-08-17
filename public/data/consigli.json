@@ -1,0 +1,487 @@
+{
+  "aggiornato": "2026-08-17",
+  "fonte": "fantacalcio.it/consigli-fantacalcio/euro-leghe",
+  "squadre": [
+    {
+      "squadra": "PSG",
+      "data": "17/08",
+      "consigliati": [
+        "Safonov (Por) — titolare, scavalcato Chevalier",
+        "Nuno Mendes (Ds-E) — top di fascia",
+        "Hakimi (Dd-E) — top",
+        "Joao Neves (M-C) — più bonus di Vitinha",
+        "Zaire-Emery (E-C) e Mayulu (C-T) — jolly a poco prezzo",
+        "Akliouche (W-T) e Godts (A) — più spazio a gara in corso",
+        "Dembélé (A) — top assoluto"
+      ],
+      "sconsigliati": [
+        "Chevalier (Por) — scavalcato",
+        "Marquinhos e Pacho (Dc) — fantamedia <6, zero bonus",
+        "Fabian Ruiz (C) — da non strapagare, rotazioni",
+        "Doué (A) — possibile panchina"
+      ],
+      "nota": "Turnover feroce: rischio di non schierare le stelle nelle partite clou",
+      "tiratori": "Vitinha (potrebbe battere rigori)"
+    },
+    {
+      "squadra": "Villarreal",
+      "data": "17/08",
+      "consigliati": [
+        "Luiz Junior + Gulacsi (Por) — coppia sottovalutata",
+        "Carlos Romero (Ds-E) — acquisto più interessante",
+        "Comesana e Pape Gueye (M-C) — mediani sottovalutati",
+        "Moleiro (W-T) e Pepe (W-A) — titolari a bassa spesa",
+        "Mikautadze (Pc) — doppia cifra, preferito a Moreno"
+      ],
+      "sconsigliati": [
+        "Buchanan (W) — ha perso il posto",
+        "Ayoze Perez (A) e Oluwaseyi (Pc) — riserve",
+        "Moreno (Pc) — acciacchi, solo scommessa"
+      ],
+      "nota": ""
+    },
+    {
+      "squadra": "Real Madrid",
+      "data": "17/08",
+      "consigliati": [
+        "Courtois (Por) — top",
+        "Cucurella (Ds-E) — mondiale da protagonista",
+        "Konaté (Dc) — nuovo titolare",
+        "Valverde (C-W) — interessante, non strapagare",
+        "Bernardo Silva (C-W-T) — qualità anche a gara in corso",
+        "Arda Guler (W-T) — duttile",
+        "Bellingham (T) — prezzo ribassato dopo stagione povera",
+        "Diomande (A) — protagonista assoluto",
+        "Mbappé (Pc) e Vinicius (A) — super top"
+      ],
+      "sconsigliati": [
+        "Tchouameni (M-C) — non da bonus",
+        "Camavinga (M-C) e Brahim Diaz (W-T) — sempre meno spazio",
+        "Rudiger (Dc) — da coprire con Militao/Huijsen",
+        "Dumfries (Dd-E) — numeri in calo, concorrenza Arnold"
+      ],
+      "nota": "",
+      "tiratori": "Dumfries (colpisce sui piazzati)"
+    },
+    {
+      "squadra": "Betis",
+      "data": "17/08",
+      "consigliati": [
+        "Valles (Por) — 24 gol subiti, pensierino",
+        "Fran Garcia (Ds-E) — qui più spazio",
+        "Bellerin (Dd-E) — usato sicuro",
+        "Fornals (C-T) — gran colpo da far passare inosservato",
+        "Ezzalzouli (W-A) e Antony (W-A) — pezzi pregiati",
+        "Cucho Hernandez (Pc) — rincalzo a poco prezzo"
+      ],
+      "sconsigliati": [
+        "Llorente e Natan (Dc) — fantamedia attesa <6",
+        "V.Gomez (Ds-Dc) e Bartra (Dc) — gerarchie basse",
+        "Isco (T) — acciacchi, scommessa",
+        "Roca vs Bernal (M-C) — ballottaggio"
+      ],
+      "nota": ""
+    },
+    {
+      "squadra": "Barcellona",
+      "data": "17/08",
+      "consigliati": [
+        "Joan Garcia (Por) — più quotato del listone",
+        "Cubarsí (Dc) — guardiano, 19 anni",
+        "Koundé (Dd-Dc) — profilo interessante",
+        "Gerard Martin (Ds-Dc) — avanti a Eric Garcia",
+        "Pedri e Gavi (C-T) — gioielli",
+        "Olmo o Fermin Lopez (T) — ottima dose di bonus",
+        "Raphinha (A) — top",
+        "Gordon (A) e Adeyemi (A) — buoni rinforzi",
+        "Lamine Yamal (A) — doppia cifra"
+      ],
+      "sconsigliati": [
+        "De Jong (M-C) — fuori per il ginocchio",
+        "Balde (Ds-E) — esca, vede poco la porta",
+        "Eric Garcia (Dd-Dc) — dietro a Gerard Martin"
+      ],
+      "nota": "Ballottaggio Olmo/Fermin Lopez"
+    },
+    {
+      "squadra": "Atletico Madrid",
+      "data": "16/08",
+      "consigliati": [
+        "Oblak (Por) — prima fascia",
+        "Grimaldo (Ds-E) — meglio di Llorente",
+        "Hancko (Ds-Dc) e Pubill (Dd-Dc) — doppio ruolo",
+        "Cristian Romero (Dc) — preferito a Le Normand",
+        "Kang-In Lee (W-T) — colpaccio di mercato",
+        "Lookman (A) e Sorloth (Pc) — non sottovalutare"
+      ],
+      "sconsigliati": [
+        "Llorente (Dd-E) — ruolo più difensivo",
+        "Le Normand (Dc) — scivola in fondo",
+        "Hjulmand e Barrios (M-C) — non da bonus",
+        "Koke (M-C) — evitare",
+        "Baena (W-T) — persa appetibilità con Lee"
+      ],
+      "nota": "Caso Julian Alvarez aperto (vuole il Barcellona)"
+    },
+    {
+      "squadra": "Athletic Bilbao",
+      "data": "16/08",
+      "consigliati": [
+        "Berchiche (Ds-E) e Laporte (Dc) — più appetibili",
+        "Vivian (Dc) e Areso (Dd-E) — vanno a voto",
+        "Nico Williams (W-A) — con la W molto interessante",
+        "Sancet (T) — prezzo contenuto",
+        "Navarro (W) — riserva a prezzo di costo"
+      ],
+      "sconsigliati": [
+        "Unai Simon (Por) — esca, pochi clean sheet",
+        "Berenguer (W) e Inaki Williams (A) — poca costanza",
+        "Guruzeta (Pc) — non entusiasma",
+        "Alvarez e Paredes (Dc) — coppie sconsigliate"
+      ],
+      "nota": "Nico Williams ancora alle prese con la pubalgia"
+    },
+    {
+      "squadra": "Stoccarda",
+      "data": "16/08",
+      "consigliati": [
+        "Chabot (Dc) — titolarissimo",
+        "Hendriks (Ds-Dc) — doppio ruolo",
+        "Mittelstadt (Ds-E) — semitop, possibile bug di listone, rigorista",
+        "Stiller (M-C) — preferito a Promel/Karazor",
+        "Fuhrich (W) — usato sicuro",
+        "Leweling (W-A) — titolare sottovalutato",
+        "Demirovic (Pc) — punta perfetta in coppia",
+        "Undav (A) — 19 gol l'anno scorso"
+      ],
+      "sconsigliati": [
+        "Porta (Seimen/Bredlow) — stateci alla larga",
+        "Vagnoman e Assignon (Dd-E) — non certi del posto",
+        "Promel e Karazor (M-C) — solo riserve",
+        "El Khannous (T) — minutaggio ridotto"
+      ],
+      "nota": "Undav/Demirovic/Leweling nel mirino di grandi club",
+      "tiratori": "Mittelstadt (rigorista all'occorrenza)"
+    },
+    {
+      "squadra": "Eintracht",
+      "data": "16/08",
+      "consigliati": [
+        "Theate (Ds-Dc) — miglior difensore, doppio ruolo",
+        "Collins (Dd-E) — doppio ruolo",
+        "Koch e Otavio (Dc) — riserve titolari low cost",
+        "Onyedika (M-C) — titolare",
+        "Chaibi (C-W-T) — tuttofare offensivo",
+        "Uzun (T) — gran destro, rigorista senza Burkardt",
+        "Doan (W-T) — per il 4-1-4-1",
+        "Burkardt (Pc) — sottovalutato"
+      ],
+      "sconsigliati": [
+        "Porta (Santos/Zetterer) — evitare",
+        "Gotze (C-T) — sceso nelle gerarchie",
+        "Knauff, Bahoya, Amaimouni (W) — solo riserve"
+      ],
+      "nota": "Burkardt: unica pecca l'integrità fisica",
+      "tiratori": "Uzun (rigorista senza Burkardt)"
+    },
+    {
+      "squadra": "Lipsia",
+      "data": "16/08",
+      "consigliati": [
+        "Raum (Ds-E) — semitop",
+        "Orban (Dc) — titolarissimo, doti aeree",
+        "Baumgartner (C-T) — numeri da top sotto il 7%",
+        "Ouedraogo (C-T) — interessante, in ripresa",
+        "Nusa (W-A) e Gruda (W-T) — colpi in trequarti",
+        "Romulo (Pc) — 2ª/3ª punta"
+      ],
+      "sconsigliati": [
+        "Porta (Vandevoordt) — lasciar perdere",
+        "Baku (Dd-E), Esteve e Lukeba (Dc) — meno appetibili",
+        "Elmas (W-T) — non nel progetto",
+        "Bakayoko (W-A) — panchina",
+        "Harder (Pc) — dietro a Romulo"
+      ],
+      "nota": "Baumgartner acciaccato post-operatorio"
+    },
+    {
+      "squadra": "Borussia Dortmund",
+      "data": "15/08",
+      "consigliati": [
+        "Kobel (Por) — top in leghe numerose",
+        "Bensebaini (B-Ds-E) — feeling col gol",
+        "Schlotterbeck (Dc) — può riconfermarsi",
+        "Anton (Dc) — ottima alternativa",
+        "Ryerson (Dd-Ds-E) — triplo ruolo, 14 assist",
+        "Svensson (Ds-E) — svalutato, puntarci",
+        "Nmecha (C) — uomo fondamentale",
+        "Karetsas (W-T) — assistman, riserva di lusso",
+        "Beier (A) — perfetto 3° slot",
+        "Guirassy (Pc) — top sottovalutato"
+      ],
+      "sconsigliati": [
+        "Jobe Bellingham (M-C) — riserva low cost",
+        "Sabitzer e Chukwuemeka (C-T) — riserve",
+        "Inacio (T-A) — meglio altrove",
+        "Fabio Silva (Pc) — solo rotazioni"
+      ],
+      "nota": "Guirassy non incedibile, possibile partenza",
+      "tiratori": "Ryerson (calci piazzati, 14 assist)"
+    },
+    {
+      "squadra": "Bayer Leverkusen",
+      "data": "15/08",
+      "consigliati": [
+        "Tapsoba (Dc) e Quansah (Dd-Dc) — gol su piazzato",
+        "Gutierrez (Ds-E) — riscatto",
+        "Garcia (M-C) — libero di inventare",
+        "Maza (T) — prezzo minore, puntarci",
+        "Afonso Moreira (W-A) — più interessante",
+        "Schick (Pc) — sottovalutato, ottima 2ª punta"
+      ],
+      "sconsigliati": [
+        "Flekken (Por) e difesa — evitare",
+        "Medina (Ds-Dc) — mai entusiasmato",
+        "Lucas Vazquez (Dd-E) — esca",
+        "Palacios e Andrich (M-C) — meglio Garcia",
+        "Tillman (T) — pagato più del dovuto",
+        "Poku e Hofmann (W-T) — sconsigliati"
+      ],
+      "nota": "Sostituire Grimaldo è il compito più arduo"
+    },
+    {
+      "squadra": "Bayern Monaco",
+      "data": "14/08",
+      "consigliati": [
+        "Laimer (Dd-Ds-E) — jolly sottovalutato",
+        "Tah (Dc) — più affidabile di Upamecano",
+        "Stanisic (B-Dd-Ds) — braccetto a 3",
+        "Brown (Ds-E) — top terzino sinistro",
+        "Kimmich (M-C) — assist e buoni voti",
+        "Olise (W-A) — il più decisivo del listone",
+        "Musiala (T) — recuperato",
+        "Saibari (T-A) — vice Kane, sorpresa Mondiale",
+        "Kane (Pc) — top assoluto"
+      ],
+      "sconsigliati": [
+        "Pavlovic (M-C) — pagato più del potenziale",
+        "Davies (Ds-E) — solo riserva",
+        "Karl (W-T) — concorrenza folta",
+        "Neuer (Por) — non più insuperabile"
+      ],
+      "nota": ""
+    },
+    {
+      "squadra": "Tottenham",
+      "data": "12/08",
+      "consigliati": [
+        "Van de Ven (Ds-Dc) — miglior difensore",
+        "Van Hecke (Dc) — qualità/prezzo",
+        "Robertson (Ds-E) — usato sicuro",
+        "Fernandes (C-T) — low cost",
+        "Maddison (T) — uomo chiave",
+        "Kudus (W-A) — titolare a destra",
+        "Solanke (Pc) — 3ª/4ª punta"
+      ],
+      "sconsigliati": [
+        "Porta — evitare",
+        "Porro (Dd-E) — esca, prezzo mondiale",
+        "Tonali (M-C) — non esagerare coi rilanci",
+        "Tel (A) — voci di mercato",
+        "Richarlison (Pc) — minutaggio ridotto",
+        "Udogie — perde posizioni",
+        "Xavi Simons (W-T) — fuori fino a febbraio"
+      ],
+      "nota": "De Zerbi: 'nessuno trattiene nessuno'"
+    },
+    {
+      "squadra": "Newcastle",
+      "data": "12/08",
+      "consigliati": [
+        "Livramento (Dd-Ds-E) — triplo ruolo",
+        "Botman e Thiaw (Dc) — titolari",
+        "Burn (Ds-Dc) — si ritaglia il posto",
+        "Ramsey (C-T) — bug di listone, listato C",
+        "Murphy e Barnes (W-A) — più avanti nelle gerarchie",
+        "Osula (Pc) — scavalcato Wissa"
+      ],
+      "sconsigliati": [
+        "Porta (Hornicek) — evitare",
+        "Joelinton e Willock (C-T) — sconsigliati",
+        "Woltemade (A) — perso fiducia",
+        "Schar (Dc) — perso il posto",
+        "Bamba (M-C) — riempitivo"
+      ],
+      "nota": "Esodo: via Tonali, Gordon, Bruno Guimaraes, Howe"
+    },
+    {
+      "squadra": "Manchester United",
+      "data": "12/08",
+      "consigliati": [
+        "Maguire (Dc) — affidabile, colpo di testa",
+        "Dalot (Dd-Ds-E) e Shaw (B-Ds-E) — jolly",
+        "Tielemans (C) e Andrey Santos (M-C) — nuovi titolari",
+        "Mainoo (C) — scommessa",
+        "Bruno Fernandes (T) — top, 21 assist",
+        "Mbeumo (A) — preferito a Cunha/Sesko"
+      ],
+      "sconsigliati": [
+        "De Ligt (Dc) — infortuni",
+        "Heaven e Yoro (Dc) — meno spazio",
+        "Dorgu (E-W) — lontano parente",
+        "Diallo (W-A) — non titolare fisso",
+        "Rashford e Zirkzee — incerti"
+      ],
+      "nota": "Carrick ha riportato lo United in Champions",
+      "tiratori": "Bruno Fernandes (cecchino sui piazzati)"
+    },
+    {
+      "squadra": "Manchester City",
+      "data": "12/08",
+      "consigliati": [
+        "Donnarumma (Por) — top",
+        "Gvardiol (Ds-Dc) — top, recuperato",
+        "O'Reilly (Ds-E) — miglior difensore realizzativo",
+        "Ruben Dias (Dc) — usato sicuro",
+        "Matheus Nunes (Dd-E) — basso prezzo",
+        "Anderson (C) — giocherà",
+        "Cherki (W-T) o Foden (T) — chi svalutato",
+        "Doku (W-A) — ala top",
+        "Semenyo (A) — giocherà non poco",
+        "Haaland (Pc) — top"
+      ],
+      "sconsigliati": [
+        "Rodri (M-C) — partente + operato",
+        "Reijnders (C-T) — non ha brillato",
+        "Nico Gonzalez (M-C) — fantamedia scarsa",
+        "Guehi (Dc) — esca",
+        "Marmoush (A) — sceso nelle gerarchie"
+      ],
+      "nota": "Fine dell'era Guardiola, arriva Maresca"
+    },
+    {
+      "squadra": "Liverpool",
+      "data": "11/08",
+      "consigliati": [
+        "Van Dijk (Dc) — top, 6 gol",
+        "Araujo (Dd-Dc) — riserva preferita",
+        "Gravenberch (M-C) — preferito a Mac Allister per prezzo",
+        "Szoboszlai (C-T) — bug di listone, super top",
+        "Wirtz (T-A) — riscatto",
+        "Munoz (W-A) — ottimo affare",
+        "Gakpo (A) — valore abbassato",
+        "Isak (Pc) — unica punta, prezzo basso"
+      ],
+      "sconsigliati": [
+        "Frimpong e Kerkez (Dd-E/Ds-E) — esche",
+        "Jones (C) ed Endo (M-C) — evitare",
+        "Mac Allister (C) — pagato più dei bonus",
+        "Alisson+Mamardashvili — troppo dispendiosa"
+      ],
+      "nota": "Esonerato Slot, arriva Iraola",
+      "tiratori": "Szoboszlai (tutti i calci da fermo)"
+    },
+    {
+      "squadra": "Chelsea",
+      "data": "11/08",
+      "consigliati": [
+        "Colwill (Ds-Dc) — doppio ruolo",
+        "Lacroix e Fofana (Dc) — a poco prezzo",
+        "Caicedo (M-C) ed Enzo Fernandez (C-T) — top",
+        "Barco (E-M) e Palestra (E) — costanti",
+        "Palmer (T) e Rogers (W-T) — top indiscutibili",
+        "Joao Pedro (Pc) — centravanti titolare"
+      ],
+      "sconsigliati": [
+        "Robert Sánchez (Por) — sotto esame",
+        "James e Gusto (Dd-E) — meno minutaggio",
+        "Quenda (W) — non da bonus",
+        "Pedro Neto e Estevao (W-A) — incerti",
+        "Welbeck (Pc) — concorrente"
+      ],
+      "nota": "Xabi Alonso nuovo tecnico, 3-4-2-1"
+    },
+    {
+      "squadra": "Bournemouth",
+      "data": "11/08",
+      "consigliati": [
+        "Truffert (Ds-E) — low cost overperformante",
+        "Juanlu Sanchez (Dd-E) — pedina low cost",
+        "Scott e Adams (M-C) — per non restare in 10",
+        "Justin Kluivert (W-T) — rigorista",
+        "Rayan (W-A) e Tavernier (W-T) — gioiellini",
+        "Antonio Silva (Dc) — da ambientare"
+      ],
+      "sconsigliati": [
+        "Kroupi (A) — infortunato fino a fine anno",
+        "Evanilson (Pc) — mai brillato",
+        "Hill e Diakité (Dc) — ballottaggio"
+      ],
+      "nota": "New entry del listone, tecnico Marco Rose",
+      "tiratori": "Justin Kluivert (rigorista designato)"
+    },
+    {
+      "squadra": "Aston Villa",
+      "data": "10/08",
+      "consigliati": [
+        "Konsa (Dd-Dc) — pezzo pregiato",
+        "Cash (Dd-E) — bonus nelle corde",
+        "McGinn (C-T) — combattente in leghe numerose",
+        "Buendia (W-T) — uomo dei calci da fermo",
+        "Watkins (Pc) — faro offensivo"
+      ],
+      "sconsigliati": [
+        "Porta — non consigliata",
+        "Mings, Pau Torres, Lindelof (Dc) — senza garanzie",
+        "Joao Gomes (C) — non da fantacalcio",
+        "Kamara (M-C) — fragile",
+        "Onana (M-C) — fuori tutta la stagione",
+        "Garnacho (W-A) — poche occasioni",
+        "Manzambi (C-T) — non strapagare"
+      ],
+      "nota": "Onana rottura crociato, rientro marzo 2027",
+      "tiratori": "Buendia (calci da fermo)"
+    },
+    {
+      "squadra": "Arsenal",
+      "data": "09/08",
+      "consigliati": [
+        "Timber (Dd-Dc) — da prendere",
+        "Gabriel (Dc) — preferito a Saliba (feeling col gol)",
+        "Saliba (Dc) — fermo per la schiena",
+        "Rice (M-C) — il più pagato",
+        "Bruno Guimaraes (C) — gol e assist",
+        "Merino (C-T) — miglior super sub",
+        "Saka (W-A) — ala top",
+        "Martinelli o Tzolis (A) — ballottaggio",
+        "Gyokeres (Pc) — top in attacco"
+      ],
+      "sconsigliati": [
+        "Odegaard (T) — perso feeling col gol",
+        "White (Dd-Dc) — sceso nelle gerarchie",
+        "Calafiori (Ds-Dc) — non eccessivi crediti",
+        "Havertz (Pc) — solo riserva low cost"
+      ],
+      "nota": "Campioni d'Inghilterra"
+    }
+  ],
+  "infortunati": [
+    "Saliba (Arsenal) — schiena, salta la prima parte di stagione",
+    "Onana (Aston Villa) — crociato, rientro marzo 2027",
+    "Kroupi (Bournemouth) — metatarso, 3-4 mesi",
+    "Mitoma (Brighton) — bicipite femorale, riabilitazione",
+    "Xavi Simons (Tottenham) — crociato, febbraio 2027",
+    "Odobert (Tottenham) — crociato, fine novembre",
+    "Rodrygo (Real Madrid) — crociato+menisco, fine 2026",
+    "Militao (Real Madrid) — bicipite femorale, fine settembre",
+    "De Jong (Barcellona) — collaterale mediale, tempi incerti",
+    "Ekitike (Liverpool) — tendine d'Achille, metà ottobre",
+    "Bradley (Liverpool) — crociato, fine 2026",
+    "Ugarte (Man United) — ginocchio, forse tutta la stagione",
+    "Scamacca (Atalanta) — crociato, febbraio",
+    "Bremer (Juventus) — crociato, aprile",
+    "Baumgartner (Lipsia) — retto femorale, prima di ottobre",
+    "Schlotterbeck (Dortmund) — caviglia, fine settembre",
+    "Emre Can (Dortmund) — crociato, rientro indefinito"
+  ]
+}
