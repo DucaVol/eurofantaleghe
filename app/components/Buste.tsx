@@ -287,6 +287,17 @@ export default function Buste({
           <h3>Le tue offerte ({offerte.length})</h3>
           <span className="reparto-slot">clicca l'esito per ruotare: in attesa → vinto → perso</span>
         </div>
+        <div className="totale-bar">
+          <span>
+            In busta: <strong className="big">{totOfferte}</strong> cr
+          </span>
+          <span className={budget - totOfferte < 0 ? "over" : "ok"}>
+            Rimanenti: <strong className="big">{budget - totOfferte}</strong> cr
+          </span>
+          {totOfferte > budget && (
+            <span className="over">Sfori di {totOfferte - budget} cr</span>
+          )}
+        </div>
         {ORDINE.map((r) => {
           const list = perRuolo[r] || [];
           if (list.length === 0) return null;
