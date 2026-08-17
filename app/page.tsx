@@ -10,6 +10,8 @@ type Player = {
   nome: string;
   squadra: string;
   campionato: string | null;
+  ex_squadra: string | null;
+  lega_storico: string | null;
   quotazione: number | null;
   base: number | null;
   fvm: number | null;
@@ -189,6 +191,55 @@ const RUOLO_SHORT: Record<string, string> = {
 function ruoloShort(ruolo: string | null): string {
   if (!ruolo) return "–";
   return RUOLO_SHORT[ruolo.toLowerCase()] ?? ruolo;
+}
+
+const LEGA_SHORT: Record<string, string> = {
+  "Premier League": "Premier",
+  LaLiga: "Liga",
+  Bundesliga: "Bundesliga",
+  "Serie A": "Serie A",
+  "Ligue 1": "Ligue 1",
+  "2. Bundesliga": "2. Bundesliga",
+  "Ligue 2": "Ligue 2",
+  "Serie B": "Serie B",
+  Championship: "Championship",
+  "Belgian Pro League": "Belgio",
+  Eredivisie: "Eredivisie",
+  LaLiga2: "LaLiga 2",
+  "Liga Portugal": "Portogallo",
+  "Super Lig": "Süper Lig",
+  "Saudi Pro League": "Arabia",
+  "Super League": "Svizzera",
+  Allsvenskan: "Svezia",
+  Ekstraklasa: "Polonia",
+  "1. Liga": "Svizzera B",
+  "Liga Profesional Apertura": "Argentina",
+};
+
+const EX_SQUADRA_SHORT: Record<string, string> = {
+  "Bayer Leverkusen": "Leverkusen",
+  "Borussia Dortmund": "Dortmund",
+  "Borussia Mönchengladbach": "Gladbach",
+  "Paris Saint-Germain": "PSG",
+  "Manchester City": "Man City",
+  "Manchester United": "Man Utd",
+  "Atletico Madrid": "Atlético",
+  "Atlético Madrid": "Atlético",
+  "VfB Stuttgart": "Stoccarda",
+  "Tottenham Hotspur": "Tottenham",
+  "AFC Bournemouth": "Bournemouth",
+  "Club Brugge": "Brugge",
+  "Athletic Club": "Athletic Bilbao",
+  "Real Madrid Castilla": "Castilla",
+  "Nottingham Forest": "Nottingham",
+  "Newcastle United": "Newcastle",
+};
+
+function legaBadge(p: Player): string {
+  if (p.ex_squadra) {
+    return "dati " + (EX_SQUADRA_SHORT[p.ex_squadra] ?? p.ex_squadra);
+  }
+  return "dati " + (LEGA_SHORT[p.lega_storico ?? ""] ?? p.lega_storico);
 }
 
 type BadgeDef = {
@@ -563,6 +614,9 @@ export default function Home() {
                               >
                                 +
                               </button>
+                              {(p.ex_squadra || p.lega_storico) && (
+                                <span className="badge new">{legaBadge(p)}</span>
+                              )}
                               {p.injury_status && (
                                 <span className="badge inj">infortunio</span>
                               )}
@@ -594,6 +648,7 @@ export default function Home() {
 
           <div className="legend">
             <strong>Legenda:</strong>{" "}
+            <span className="badge new">dati [squadra/campionato]</span> = statistiche dalla squadra/campionato precedente (non comparabili 1:1) ·{" "}
             <span className="badge inj">infortunio</span> = infortunio attivo
             {BADGES.filter((b) => !b.showFor || b.showFor.includes(role)).map((b) => (
               <span key={b.key}>

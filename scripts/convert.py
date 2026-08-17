@@ -49,6 +49,8 @@ for r in range(2, ws.max_row + 1):
         "nome": nome,
         "squadra": txt(ws.cell(r, c["squadra_fantacalcio"]).value),
         "campionato": txt(ws.cell(r, c["campionato"]).value),
+        "ex_squadra": txt(ws.cell(r, c["ex_squadra"]).value),
+        "lega_storico": txt(ws.cell(r, c["lega_storico"]).value),
         "ruolo": ruolo,
         "quotazione": num(ws.cell(r, c["quotazione"]).value),
         "base": num(ws.cell(r, c["prezzo_base_ceil"]).value),
