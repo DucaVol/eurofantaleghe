@@ -583,6 +583,7 @@ export default function Home() {
 
   const vinti = offerte.filter((o) => o.esito === "vinto");
   const spesi = vinti.reduce((s, o) => s + (Number(o.offerta) || 0), 0);
+  const nomiInOfferta = useMemo(() => new Set(offerte.map((o) => o.nome.toLowerCase())), [offerte]);
   const presiPerRuolo: Record<string, number> = { P: 0, D: 0, C: 0, A: 0 };
   vinti.forEach((o) => {
     if (presiPerRuolo[o.ruolo] !== undefined) presiPerRuolo[o.ruolo]++;
@@ -742,7 +743,10 @@ export default function Home() {
                   {filtered.map((p) => (
                     <tr
                       key={p.id}
-                      className={queryMatch.has(p.nome) ? "search-match" : ""}
+                      className={
+                        (queryMatch.has(p.nome) ? "search-match " : "") +
+                        (nomiInOfferta.has(p.nome.toLowerCase()) ? "in-offerta" : "")
+                      }
                     >
                       {visibleCols.map((c) => {
                         if (c.key === "nome") {
