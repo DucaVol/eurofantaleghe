@@ -3,7 +3,7 @@
 import json, urllib.request, time, openpyxl
 
 SRC = "/home/ubuntu/Downloads/euroleghe_master_classic_fotmob_2026_27_final_clean.xlsx"
-OUT = "/tmp/euroleghe_ex_squadra_v2.json"
+OUT = "/tmp/euroleghe_ex_squadra_v3.json"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
@@ -53,11 +53,15 @@ def find_team_2526(entries, primary_team):
             cands.append((t, ov_s, ov_e))
     if not cands:
         return None
+    # soglia: conta solo se ha giocato lì almeno 90 giorni (esclude trasferimenti di inizio stagione)
+    from datetime import date
+    cands = [c for c in cands if (date.fromisoformat(c[2]) - date.fromisoformat(c[1])).days >= 90]
+    if not cands:
+        return None
     for t, _, _ in cands:
         tt = t.get("transferType") or {}
         if tt.get("localizationKey") == "on_loan":
             return t.get("team")
-    from datetime import date
     def dur(c):
         return (date.fromisoformat(c[2]) - date.fromisoformat(c[1])).days
     cands.sort(key=dur, reverse=True)

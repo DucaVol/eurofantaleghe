@@ -3,7 +3,7 @@
 import json, openpyxl
 
 SRC = "/home/ubuntu/Downloads/euroleghe_master_classic_fotmob_2026_27_final_clean.xlsx"
-DATA = "/tmp/euroleghe_ex_squadra_v2.json"
+DATA = "/tmp/euroleghe_ex_squadra_v3.json"
 
 data = json.load(open(DATA))
 
@@ -41,8 +41,8 @@ for sheet in ["Solo_Torneo", "Portieri", "Difensori", "Centrocampisti", "Attacca
         # lega_storico solo se diversa dal campionato attuale (mappato)
         camp_fotmob = LISTONE_FOTMOB.get(camp, camp)
         lega_final = lega if (lega and lega != camp_fotmob) else None
-        ws.cell(r, c["ex_squadra"], ex)
-        ws.cell(r, c["lega_storico"], lega_final)
+        ws.cell(r, c["ex_squadra"]).value = ex
+        ws.cell(r, c["lega_storico"]).value = lega_final
         if ex or lega_final:
             found += 1
     print(f"{sheet}: popolati {found} con ex_squadra o lega_storico")
