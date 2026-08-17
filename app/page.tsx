@@ -22,6 +22,7 @@ type Player = {
   gol: number | null;
   assist: number | null;
   rating: number | null;
+  fantamedia: number | null;
   gialli: number | null;
   rossi: number | null;
   xG: number | null;
@@ -78,6 +79,7 @@ const COLUMNS: Col[] = [
   { key: "squadra", label: "Squadra", desc: "Squadra di appartenenza nel listone" },
   { key: "quotazione", label: "Quot.", num: true, dec: 0, desc: "Quotazione ufficiale" },
   { key: "rating", label: "MV", num: true, dec: 2, desc: "Media voto FotMob 2025/26 (NON è il fantavoto)" },
+  { key: "fantamedia", label: "FM", num: true, dec: 2, desc: "Fantamedia 2025/26: media voto + bonus/malus (gol, assist, rigori, ammonizioni)" },
   { key: "eta", label: "Età", num: true, dec: 0, desc: "Età del giocatore" },
   { key: "ruolo_reale", label: "Pos.", desc: "Posizione reale secondo FotMob (può differire dal ruolo listone)" },
   { key: "presenze", label: "Pres.", num: true, dec: 0, desc: "Presenze 2025/26" },
@@ -121,6 +123,7 @@ const COLOR_DIR: Record<string, "asc" | "desc"> = {
   minuti: "asc",
   titolarita_pct: "asc",
   rating: "asc",
+  fantamedia: "asc",
   gol: "asc",
   assist: "asc",
   xG: "asc",

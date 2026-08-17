@@ -64,6 +64,7 @@ for r in range(2, ws.max_row + 1):
         "gol": num(ws.cell(r, c["gol_campionato"]).value),
         "assist": num(ws.cell(r, c["assist_campionato"]).value),
         "rating": num(ws.cell(r, c["rating_fotmob"]).value),
+        "fantamedia": num(ws.cell(r, c["fantamedia"]).value),
         "gialli": num(ws.cell(r, c["gialli"]).value),
         "rossi": num(ws.cell(r, c["rossi"]).value),
         "xG": num(ws.cell(r, c["xG"]).value),
