@@ -13,6 +13,11 @@ HEADERS = {
 
 # nome listone -> fotmob_id corretto (None = non trovato, azzera)
 FIX = {
+    "Martinez Jo.": 772168,       # Josep Martinez (P Inter) - era Lautaro
+    "Terracciano": 281762,        # Pietro Terracciano (P Milan) - era Filippo
+    "Sanchez J.": 1158512,        # Juanlu Sanchez (D Bournemouth)
+    "Hojlund O.": 1336529,        # Oscar Hojlund (C Eintracht)
+    "Elmas": 741049,              # Eljif Elmas (C Lipsia)
     "Kim": 828159,                # Min-Jae Kim (Bayern) - era Joshua Kimmich
     "Gabriel Magalhaes": 795179,  # Gabriel (Arsenal) - era João Gabriel (Mixto)
     "Martinez Lis.": 847983,      # Lisandro Martínez (Man United) - era Jorge Martínez-Losa

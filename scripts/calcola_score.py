@@ -4,6 +4,9 @@ import openpyxl
 
 SRC = "/home/ubuntu/Downloads/euroleghe_master_classic_fotmob_2026_27_final_clean.xlsx"
 
+# giornate per campionato (per calcolare la titolarita sui minuti totali)
+PARTITE = {"Liga": 38, "Premier League": 38, "Serie A": 38, "Bundesliga": 34, "Ligue 1": 34}
+
 
 def n(v):
     if v is None or v == "":
@@ -28,7 +31,13 @@ for sheet in ["Solo_Torneo", "Portieri", "Difensori", "Centrocampisti", "Attacca
     done = 0
     for r in range(2, ws.max_row + 1):
         ruolo = ws.cell(r, c["ruolo"]).value
-        tit = n(ws.cell(r, c["titolarita_pct"]).value)          # 0..1
+        # titolarita = minuti totali / (partite campionato * 90), 0..1
+        minuti = n(ws.cell(r, c["minuti_campionato"]).value)
+        camp = ws.cell(r, c["campionato"]).value
+        partite = PARTITE.get(camp, 38)
+        tit = min(1.0, minuti / (partite * 90)) if minuti else 0.0
+        if "titolarita_pct" in c:
+            ws.cell(r, c["titolarita_pct"]).value = round(tit * 100, 1)
         rating = n(ws.cell(r, c["rating_fotmob"]).value)
         gol = n(ws.cell(r, c["gol_campionato"]).value)
         ass = n(ws.cell(r, c["assist_campionato"]).value)
