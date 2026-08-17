@@ -38,7 +38,8 @@
         "Ayoze Perez (A) e Oluwaseyi (Pc) — riserve",
         "Moreno (Pc) — acciacchi, solo scommessa"
       ],
-      "nota": ""
+      "nota": "",
+      "tiratori": "Rigori: Gerard Moreno, Ayoze Perez, Nicolas Pepe · Punizioni: Nicolas Pepé, Alberto Moleiro, Pape Gueye · Angoli: Alberto Moleiro, Nicolas Pepe, Ilias Akhomach"
     },
     {
       "squadra": "Real Madrid",
@@ -80,7 +81,8 @@
         "Isco (T) — acciacchi, scommessa",
         "Roca vs Bernal (M-C) — ballottaggio"
       ],
-      "nota": ""
+      "nota": "",
+      "tiratori": "Rigori: Isco, Cucho Hernandez, Ezzalzouli/Lo Celso · Punizioni: Isco, Giovanni Lo Celso, Pablo Fornals · Angoli: Pablo Fornals, Isco, Giovanni Lo Celso"
     },
     {
       "squadra": "Barcellona",
@@ -101,7 +103,8 @@
         "Balde (Ds-E) — esca, vede poco la porta",
         "Eric Garcia (Dd-Dc) — dietro a Gerard Martin"
       ],
-      "nota": "Ballottaggio Olmo/Fermin Lopez"
+      "nota": "Ballottaggio Olmo/Fermin Lopez",
+      "tiratori": "Rigori: Raphinha, Lamine Yamal, Dani Olmo · Punizioni: Raphinha, Dani Olmo, Lamine Yamal · Angoli: Raphinha, Dani Olmo, Lamine Yamal"
     },
     {
       "squadra": "Atletico Madrid",
@@ -121,7 +124,8 @@
         "Koke (M-C) — evitare",
         "Baena (W-T) — persa appetibilità con Lee"
       ],
-      "nota": "Caso Julian Alvarez aperto (vuole il Barcellona)"
+      "nota": "Caso Julian Alvarez aperto (vuole il Barcellona)",
+      "tiratori": "Rigori: Julian Alvarez, Ademola Lookman, Alex Baena · Punizioni: Julian Alvarez, Alex Baena, Kang In Lee · Angoli: Koke, Alex Baena, Kang In Lee"
     },
     {
       "squadra": "Athletic Bilbao",
@@ -139,7 +143,8 @@
         "Guruzeta (Pc) — non entusiasma",
         "Alvarez e Paredes (Dc) — coppie sconsigliate"
       ],
-      "nota": "Nico Williams ancora alle prese con la pubalgia"
+      "nota": "Nico Williams ancora alle prese con la pubalgia",
+      "tiratori": "Rigori: Oihan Sancet, Nico Williams, Gorka Guruzeta · Punizioni: Oihan Sancet, Nico Williams, Berenguer/Navarro · Angoli: Robert Navarro, Yuri Berchiche, Alex Berenguer"
     },
     {
       "squadra": "Stoccarda",
@@ -202,7 +207,8 @@
         "Bakayoko (W-A) — panchina",
         "Harder (Pc) — dietro a Romulo"
       ],
-      "nota": "Baumgartner acciaccato post-operatorio"
+      "nota": "Baumgartner acciaccato post-operatorio",
+      "tiratori": "Rigori: David Raum, Christoph Baumgartner, Romulo · Punizioni: David Raum, Antonio Nusa, Max Fingrafe · Angoli: David Raum, Max Finkgrafe, Brajan Gruda"
     },
     {
       "squadra": "Borussia Dortmund",
@@ -247,7 +253,8 @@
         "Tillman (T) — pagato più del dovuto",
         "Poku e Hofmann (W-T) — sconsigliati"
       ],
-      "nota": "Sostituire Grimaldo è il compito più arduo"
+      "nota": "Sostituire Grimaldo è il compito più arduo",
+      "tiratori": "Rigori: Patrick Schick, Aleix Garcia, Jonas Hoffman · Punizioni: Aleix Garcia, Exequiel Palacios, Jonas Hofmann · Angoli: Aleix Garcia, Ibrahim Maza, Jonas Hofmann"
     },
     {
       "squadra": "Bayern Monaco",
@@ -269,7 +276,8 @@
         "Karl (W-T) — concorrenza folta",
         "Neuer (Por) — non più insuperabile"
       ],
-      "nota": ""
+      "nota": "",
+      "tiratori": "Rigori: Harry Kane, Michael Olise, Jamal Musiala · Punizioni: Michael Olise, Harry Kane, Joshua Kimmich · Angoli: Joshua Kimmich, Michael Olise, Serge Gnabry"
     },
     {
       "squadra": "Tottenham",
@@ -292,7 +300,8 @@
         "Udogie — perde posizioni",
         "Xavi Simons (W-T) — fuori fino a febbraio"
       ],
-      "nota": "De Zerbi: 'nessuno trattiene nessuno'"
+      "nota": "De Zerbi: 'nessuno trattiene nessuno'",
+      "tiratori": "Rigori: Dominik Solanke, James Maddison, Kudus/Tel · Punizioni: Pedro Porro, James Maddison, Andrew Robertson · Angoli: Pedro Porro, Adrew Robertson, Mathys Tel"
     },
     {
       "squadra": "Newcastle",
@@ -312,7 +321,8 @@
         "Schar (Dc) — perso il posto",
         "Bamba (M-C) — riempitivo"
       ],
-      "nota": "Esodo: via Tonali, Gordon, Bruno Guimaraes, Howe"
+      "nota": "Esodo: via Tonali, Gordon, Bruno Guimaraes, Howe",
+      "tiratori": "Rigori: Nick Woltemade, William Osula, Yoane Wissa · Punizioni: Lewis Hall, Fabian Shar, Jacob Murphy · Angoli: Harvey Barnes, Jacob Murphy, Sean Steur"
     },
     {
       "squadra": "Manchester United",
@@ -357,7 +367,8 @@
         "Guehi (Dc) — esca",
         "Marmoush (A) — sceso nelle gerarchie"
       ],
-      "nota": "Fine dell'era Guardiola, arriva Maresca"
+      "nota": "Fine dell'era Guardiola, arriva Maresca",
+      "tiratori": "Rigori: Erling Haaland, Omar Marmoush, Rayan Cherki · Punizioni: Phil Foden, Rayan Cherki, Omar Marmoush · Angoli: Rayan Cherki, Phil Foden, Tijani Reijnders"
     },
     {
       "squadra": "Liverpool",
@@ -399,7 +410,8 @@
         "Pedro Neto e Estevao (W-A) — incerti",
         "Welbeck (Pc) — concorrente"
       ],
-      "nota": "Xabi Alonso nuovo tecnico, 3-4-2-1"
+      "nota": "Xabi Alonso nuovo tecnico, 3-4-2-1",
+      "tiratori": "Rigori: Cole Palmer, Enzo Fernandez, Joao Pedro · Punizioni: Enzo Fernandez, Cole Palmer, Barco/Pedro Neto · Angoli: Enzo Fernandez, Valentin Barco, James/Pedro Neto"
     },
     {
       "squadra": "Bournemouth",
@@ -462,7 +474,8 @@
         "Calafiori (Ds-Dc) — non eccessivi crediti",
         "Havertz (Pc) — solo riserva low cost"
       ],
-      "nota": "Campioni d'Inghilterra"
+      "nota": "Campioni d'Inghilterra",
+      "tiratori": "Rigori: Victor Gyokeres, Bukayo Saka, Bruno Guimaraes · Punizioni: Bukayo Saka, Declan Rice, Martin Odegaard · Angoli: Bukayo Saka, Declan Rice, Eberechi Eze"
     }
   ],
   "infortunati": [
