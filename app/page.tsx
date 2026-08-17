@@ -187,14 +187,16 @@ type BadgeDef = {
   key: string;
   label: string;
   cls: string;
+  desc: string;
   showFor?: string[];
   test: (p: Player) => boolean;
 };
 
 const BADGES: BadgeDef[] = [
-  { key: "assistman", label: "assistman", cls: "assistman", showFor: ["P", "D", "C", "A"], test: (p) => (p.ruolo === "P" ? (p.assist ?? 0) >= 1 : (p.assist ?? 0) >= 6 || (p.xA ?? 0) >= 5) },
-  { key: "rigorista", label: "rigorista", cls: "rigorista", showFor: ["D", "C", "A"], test: (p) => (p.rigori_gol ?? 0) >= 2 || (p.xG ?? 0) - (p.xG_no_rigori ?? 0) >= 1.5 },
-  { key: "cartellini", label: "cartellini", cls: "cartellini", showFor: ["P", "D", "C", "A"], test: (p) => (p.gialli ?? 0) >= 9 },
+  { key: "assistman", label: "assistman", cls: "assistman", desc: "assist ≥ 6 o xA ≥ 5 (portieri: assist ≥ 1)", showFor: ["P", "D", "C", "A"], test: (p) => (p.ruolo === "P" ? (p.assist ?? 0) >= 1 : (p.assist ?? 0) >= 6 || (p.xA ?? 0) >= 5) },
+  { key: "rigorista", label: "rigorista", cls: "rigorista", desc: "rigori segnati ≥ 2 o xG da rigori ≥ 1.5", showFor: ["D", "C", "A"], test: (p) => (p.rigori_gol ?? 0) >= 2 || (p.xG ?? 0) - (p.xG_no_rigori ?? 0) >= 1.5 },
+  { key: "pararigori", label: "pararigori", cls: "pararigori", desc: "rigori parati ≥ 2", showFor: ["P"], test: (p) => (p.rigori_parati ?? 0) >= 2 },
+  { key: "cartellini", label: "cartellini", cls: "cartellini", desc: "gialli ≥ 9", showFor: ["P", "D", "C", "A"], test: (p) => (p.gialli ?? 0) >= 9 },
 ];
 
 function getBadges(p: Player): BadgeDef[] {
@@ -583,12 +585,15 @@ export default function Home() {
 
           <div className="legend">
             <strong>Legenda:</strong>{" "}
-            <span className="badge inj">infortunio</span> = infortunio attivo ·{" "}
-            <span className="badge assistman">assistman</span> = assist ≥ 6 o xA ≥ 5 ·{" "}
-            <span className="badge rigorista">rigorista</span> = rigori ≥ 2 o xG da rigori ≥ 1.5 ·{" "}
-            <span className="badge cartellini">cartellini</span> = gialli ≥ 9.
+            <span className="badge inj">infortunio</span> = infortunio attivo
+            {BADGES.filter((b) => !b.showFor || b.showFor.includes(role)).map((b) => (
+              <span key={b.key}>
+                {" · "}
+                <span className={"badge " + b.cls}>{b.label}</span> = {b.desc}
+              </span>
+            ))}
             <br />
-            <strong>Base</strong> = metà quotazione (prezzo da busta). <strong>MV</strong> = media voto FotMob 2025/26 (non fantavoto). <strong>Max bid</strong> = offerta massima suggerita dal piano.
+            <strong>½ Quot.</strong> = metà quotazione (mercato inoltrato). <strong>MV</strong> = media voto FotMob 2025/26 (non fantavoto). <strong>Max bid</strong> = offerta massima suggerita dal piano.
             <br />
             Dati: listone ufficiale EuroLeghe 2026/27 + FotMob (stagione 2025/26). Titol.% = minuti su presenze.
           </div>
