@@ -59,6 +59,7 @@ type Col = {
   dec?: number;
   pct?: boolean;
   per90?: boolean;
+  suffix?: string;
   showFor?: string[];
 };
 
@@ -86,7 +87,7 @@ const COLUMNS: Col[] = [
   { key: "ruolo_reale", label: "Pos.", desc: "Posizione reale secondo FotMob (può differire dal ruolo listone)" },
   { key: "presenze", label: "Pres.", num: true, dec: 0, desc: "Presenze 2025/26" },
   { key: "minuti", label: "Min.", num: true, dec: 0, desc: "Minuti giocati 2025/26" },
-  { key: "titolarita_pct", label: "Min. giocati", num: true, per90: true, desc: "Minuti in media a partita (90' = sempre in campo)" },
+  { key: "titolarita_pct", label: "Titol.%", num: true, dec: 0, suffix: "%", desc: "Percentuale di minuti giocati sul totale della stagione (100% = sempre titolare)" },
   { key: "gol", label: "Gol", num: true, dec: 0, showFor: ["D", "C", "A"], desc: "Gol segnati 2025/26" },
   { key: "assist", label: "Assist", num: true, dec: 0, showFor: ["P", "D", "C", "A"], desc: "Assist 2025/26" },
   { key: "xG", label: "xG", num: true, dec: 1, showFor: ["D", "C", "A"], desc: "Expected Goals: gol attesi dalla qualità dei tiri" },
@@ -116,6 +117,7 @@ function fmt(p: Player, c: Col): string {
   if (v === null || v === undefined || v === "") return "–";
   if (c.pct) return Math.round(Number(v) * 100) + "%";
   if (c.per90) return Math.round(Number(v) * 90) + "'";
+  if (c.suffix) return Number(v).toFixed(c.dec ?? 0) + c.suffix;
   if (c.num) return Number(v).toFixed(c.dec ?? 0);
   return String(v);
 }
@@ -659,7 +661,7 @@ export default function Home() {
             <br />
             <strong>MV</strong> = media voto FotMob 2025/26 (non fantavoto). <strong>Score</strong> = indice 0-100 (titolarità + produzione + valore + rischio, calcolato per ruolo).
             <br />
-            Dati: listone ufficiale EuroLeghe 2026/27 + FotMob (stagione 2025/26). Titol.% = minuti su presenze.
+            Dati: listone ufficiale EuroLeghe 2026/27 + FotMob (stagione 2025/26). Titol.% = % di minuti giocati sul totale stagione.
           </div>
         </>
       )}
