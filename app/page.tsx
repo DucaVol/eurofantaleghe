@@ -275,49 +275,57 @@ function ScoreInfo() {
     <div style={{ maxWidth: 760, margin: "0 auto", padding: 16 }}>
       <h2>Come funziona lo Score</h2>
       <p style={{ color: "#bbb" }}>
-        Lo Score è un indice 0–100 che ordina i giocatori per valore (qualità rispetto al prezzo).
-        Non è un pronostico di fantamedia: serve a confrontare titolarità, produzione e costo.
-        Dati: stagione 2025/26.
+        Indice 0–100 di convenienza (qualità rispetto al prezzo). I minuti non contano due volte:
+        la Titolarità premia quanto giochi, il bonus reparto quanto produci quando giochi
+        (statistiche per 90 minuti). Dati: stagione 2025/26.
       </p>
 
       <h3 style={h3}>Componenti comuni a tutti i ruoli</h3>
       <div style={box}>
-        <div style={row}><span><strong>Titolarità</strong> — % di minuti giocati sul totale stagione (minuti ÷ giornate ÷ 90)</span>{max(40)}</div>
-        <div style={row}><span><strong>Rating</strong> — media voto FotMob: 6.0 = 0 punti, 7.5+ = punteggio pieno</span>{max(25)}</div>
-        <div style={row}><span><strong>Valore</strong> — premia il prezzo basso: 15 − prezzo base (metà quotazione)</span>{max(15)}</div>
-        <div style={row}><span><strong>Cartellini</strong> — penalità: gialli × 0.5 + rossi × 3</span><span style={{ color: "#e66" }}>−12</span></div>
+        <div style={row}><span><strong>Titolarità</strong> — % di minuti giocati sul totale stagione</span>{max(35)}</div>
+        <div style={row}><span><strong>Rating MV</strong> — media voto FotMob: 6.0 = 0, 8.0+ = punteggio pieno</span>{max(25)}</div>
+        <div style={row}><span><strong>Valore</strong> — premia la quotazione bassa: 20 − quotazione/2.5</span>{max(20)}</div>
+        <div style={row}><span><strong>Cartellini</strong> — penalità: gialli × 0.5 + rossi × 3</span><span style={{ color: "#e66" }}>−5</span></div>
       </div>
 
-      <h3 style={h3}>Bonus per reparto</h3>
+      <h3 style={h3}>Bonus per reparto (per 90 minuti)</h3>
 
       <div style={box}>
         <strong>Portieri</strong>
-        <div style={row}><span>Clean sheet (porte inviolate) × 0.7</span>{max(15)}</div>
-        <div style={row}><span>Rigori parati × 2</span>{max(5)}</div>
+        <div style={row}><span>Clean sheet % (porte inviolate ÷ presenze)</span>{max(10)}</div>
+        <div style={row}><span>Gol subiti /90 (meno = meglio)</span>{max(10)}</div>
       </div>
 
       <div style={box}>
         <strong>Difensori</strong>
-        <div style={row}><span>(Gol + assist) × 1.2</span>{max(15)}</div>
-        <div style={row}><span>Expected assist (xA) × 0.5</span>{max(5)}</div>
+        <div style={row}><span>Gol /90</span>{max(4)}</div>
+        <div style={row}><span>Assist /90</span>{max(4)}</div>
+        <div style={row}><span>Expected assist (xA) /90</span>{max(6)}</div>
+        <div style={row}><span>Tocchi in area /90</span>{max(6)}</div>
       </div>
 
       <div style={box}>
         <strong>Centrocampisti</strong>
-        <div style={row}><span>(Gol + assist) × 1.2</span>{max(12)}</div>
-        <div style={row}><span>Expected goals (xG) × 0.4</span>{max(6)}</div>
-        <div style={row}><span>Bonus ruolo offensivo (ala / trequartista / attaccante)</span><span style={{ color: "#7c7" }}>+5</span></div>
+        <div style={row}><span>Gol /90</span>{max(4)}</div>
+        <div style={row}><span>Assist /90</span>{max(3)}</div>
+        <div style={row}><span>Non-penalty xG /90</span>{max(3)}</div>
+        <div style={row}><span>Expected assist (xA) /90</span>{max(3)}</div>
+        <div style={row}><span>Tocchi in area /90</span>{max(2)}</div>
+        <div style={row}><span>Tiri /90</span>{max(2)}</div>
+        <div style={row}><span>Occasioni create /90</span>{max(3)}</div>
       </div>
 
       <div style={box}>
         <strong>Attaccanti</strong>
-        <div style={row}><span>Gol × 1.4</span>{max(15)}</div>
-        <div style={row}><span>Expected goals (xG) × 0.4</span>{max(8)}</div>
+        <div style={row}><span>Gol /90</span>{max(8)}</div>
+        <div style={row}><span>Non-penalty xG /90</span>{max(6)}</div>
+        <div style={row}><span>Tiri in porta /90</span>{max(4)}</div>
+        <div style={row}><span>Tocchi in area /90</span>{max(2)}</div>
       </div>
 
       <p style={{ color: "#888", marginTop: 14 }}>
-        Totale limitato a 0–100. Chi gioca poco è già penalizzato dalla Titolarità (un panchinaro
-        con 2 presenze prende ~0 punti titolarità). Il rating su poche partite resta un dato debole.
+        Le statistiche /90 sono normalizzate sui percentili del ruolo (scale fisse). Totale 0–100
+        prima dei cartellini. Chi gioca poco è penalizzato dalla Titolarità, non due volte.
       </p>
     </div>
   );
