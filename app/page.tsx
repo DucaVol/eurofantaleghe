@@ -76,8 +76,6 @@ const COLUMNS: Col[] = [
   { key: "nome", label: "Giocatore", desc: "Nome nel listone EuroLeghe 2026/27" },
   { key: "squadra", label: "Squadra", desc: "Squadra di appartenenza nel listone" },
   { key: "quotazione", label: "Quot.", num: true, dec: 0, desc: "Quotazione ufficiale" },
-  { key: "base", label: "½ Quot.", num: true, dec: 0, desc: "Metà quotazione (ceil) — riferimento per il mercato inoltrato; in busta si parte da 1" },
-  { key: "fvm", label: "FVM", num: true, dec: 0, desc: "Fanta Valore di Mercato" },
   { key: "rating", label: "MV", num: true, dec: 2, desc: "Media voto FotMob 2025/26 (NON è il fantavoto)" },
   { key: "eta", label: "Età", num: true, dec: 0, desc: "Età del giocatore" },
   { key: "ruolo_reale", label: "Pos.", desc: "Posizione reale secondo FotMob (può differire dal ruolo listone)" },
@@ -101,8 +99,7 @@ const COLUMNS: Col[] = [
   { key: "gol_subiti", label: "Subiti", num: true, dec: 0, showFor: ["P"], desc: "Gol subiti nella 2025/26 (meno sono, meglio è)" },
   { key: "gialli", label: "Gialli", num: true, dec: 0, desc: "Ammonizioni (malus)" },
   { key: "rossi", label: "Rossi", num: true, dec: 0, desc: "Espulsioni (malus)" },
-  { key: "score_finale", label: "Score", num: true, dec: 0, desc: "Score finale calcolato (continuità + bonus + valore + rischio)" },
-  { key: "max_bid", label: "Max bid", num: true, dec: 0, desc: "Offerta massima suggerita dal piano" },
+  { key: "score_finale", label: "Score", num: true, dec: 0, desc: "Indice 0-100: titolarità + produzione + valore + rischio (per ruolo)" },
 ];
 
 function cellValue(p: Player, key: string): string | number | null {
@@ -123,7 +120,6 @@ const COLOR_DIR: Record<string, "asc" | "desc"> = {
   minuti: "asc",
   titolarita_pct: "asc",
   rating: "asc",
-  fvm: "asc",
   gol: "asc",
   assist: "asc",
   xG: "asc",
@@ -601,7 +597,7 @@ export default function Home() {
               </span>
             ))}
             <br />
-            <strong>½ Quot.</strong> = metà quotazione (mercato inoltrato). <strong>MV</strong> = media voto FotMob 2025/26 (non fantavoto). <strong>Max bid</strong> = offerta massima suggerita dal piano.
+            <strong>MV</strong> = media voto FotMob 2025/26 (non fantavoto). <strong>Score</strong> = indice 0-100 (titolarità + produzione + valore + rischio, calcolato per ruolo).
             <br />
             Dati: listone ufficiale EuroLeghe 2026/27 + FotMob (stagione 2025/26). Titol.% = minuti su presenze.
           </div>
