@@ -13,12 +13,26 @@ HEADERS = {
 
 # nome listone -> fotmob_id corretto (None = non trovato, azzera)
 FIX = {
-    "Martinez Jo.": 772168,       # Josep Martinez (portiere Inter)
-    "Terracciano": 281762,        # Pietro Terracciano (portiere Milan)
-    "Sanchez J.": 1158512,        # Juanlu Sanchez (D Bournemouth)
-    "Hojlund O.": 1336529,        # Oscar Hojlund (C Eintracht)
-    "Elmas": 741049,              # Eljif Elmas (C Lipsia)
-    "Santos K.": None,            # Kaua Santos (portiere Eintracht) - id non trovato
+    "Kim": 828159,                # Min-Jae Kim (Bayern) - era Joshua Kimmich
+    "Gabriel Magalhaes": 795179,  # Gabriel (Arsenal) - era João Gabriel (Mixto)
+    "Martinez Lis.": 847983,      # Lisandro Martínez (Man United) - era Jorge Martínez-Losa
+    "Alvarez Y.": 639450,         # Yeray Álvarez (Athletic) - era Julián Álvarez
+    "Williams N.": 1202110,       # Nico Williams (Athletic) - era Mekeil Williams
+    "Williams I.": 604105,        # Iñaki Williams (Athletic) - era Mekeil Williams
+    "Adeyemi": 959594,            # Karim Adeyemi (Barcelona) - era Tom Adeyemi
+    "Vivian": 940743,             # Daniel Vivian (Athletic) - era Vivian Montenegro
+    "Berenguer": 574629,          # Alex Berenguer (Athletic) - era Aina Fernandez Berenguer
+    "Ederson D.S.": 957203,       # Éderson (Atalanta) - era Ederson Tormena
+    "Garcia F.": 750028,          # Fran García (Real Betis) - era Gonzalo García (Fulham)
+    "Navarro": 1011117,           # Robert Navarro (Athletic) - era Pau Navarro (Villarreal)
+    "Ramos G.": 940087,           # Gonçalo Ramos (Milan) - era Sergio Ramos
+    "Cissè M.K.": 1714552,        # Modou Kéba Cissé (Aston Villa) - era Cissé Mory (Liepaja)
+    "Gila": 1106074,              # Mario Gila (Milan) - era Eloy Gila
+    "Cresswell C.": 1186444,      # Charlie Cresswell (Rennes) - era Cameron Cresswell
+    "Joao Mario": 958421,         # João Mário (Fiorentina) - era João Mário (svincolato)
+    "Chandler": 158234,           # Timothy Chandler (Eintracht) - era Jamie Chandler
+    "Ramon": None,                # difensore Como - id non trovato, azzera
+    "Valdepenas": None,           # difensore Fiorentina - id non trovato, azzera
 }
 
 def get(url, retries=3):
