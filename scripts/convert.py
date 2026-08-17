@@ -87,6 +87,10 @@ for r in range(2, ws.max_row + 1):
         "max_bid": num(ws.cell(r, c["max_bid"]).value),
         "offerta": offerte.get(nome),
     }
+    if p["xG"] is not None and p["xG_no_rigori"] is not None:
+        p["rigori_xg"] = round(p["xG"] - p["xG_no_rigori"], 2)
+    else:
+        p["rigori_xg"] = None
     players.append(p)
 
 import os

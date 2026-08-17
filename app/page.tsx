@@ -30,6 +30,7 @@ type Player = {
   tiri_in_porta: number | null;
   rigori_gol: number | null;
   xG_no_rigori: number | null;
+  rigori_xg: number | null;
   occasioni_create: number | null;
   big_chances: number | null;
   tocchi_area: number | null;
@@ -88,7 +89,7 @@ const COLUMNS: Col[] = [
   { key: "xA", label: "xA", num: true, dec: 1, showFor: ["P", "D", "C", "A"], desc: "Expected Assists" },
   { key: "tiri", label: "Tiri", num: true, dec: 0, showFor: ["C", "A"], desc: "Tiri totali 2025/26" },
   { key: "tiri_in_porta", label: "In porta", num: true, dec: 0, showFor: ["D", "A"], desc: "Tiri nello specchio" },
-  { key: "rigori_gol", label: "Rig.", num: true, dec: 0, showFor: ["D", "C", "A"], desc: "Rigori segnati (segnale di chi tira i rigori)" },
+  { key: "rigori_xg", label: "Rig.xG", num: true, dec: 1, showFor: ["D", "C", "A"], desc: "xG da calci di rigore (xG − non-penalty xG). Valore alto = tira i rigori" },
   { key: "tiri_punizione", label: "Puniz.", num: true, dec: 0, showFor: ["D", "C", "A"], desc: "Tiri diretti da punizione nella 2025/26 (segnale di battitore)" },
   { key: "crosses", label: "Cross", num: true, dec: 0, showFor: ["D", "C"], desc: "Cross riusciti (proxy di chi batte i corner)" },
   { key: "occasioni_create", label: "Occ. create", num: true, dec: 0, showFor: ["C"], desc: "Occasioni da gol create" },
@@ -127,6 +128,7 @@ const COLOR_DIR: Record<string, "asc" | "desc"> = {
   tiri: "asc",
   tiri_in_porta: "asc",
   rigori_gol: "asc",
+  rigori_xg: "asc",
   occasioni_create: "asc",
   big_chances: "asc",
   tocchi_area: "asc",
@@ -198,7 +200,7 @@ type BadgeDef = {
 const BADGES: BadgeDef[] = [
   { key: "assistman", label: "assistman", cls: "assistman", desc: "assist ≥ 6 o xA ≥ 5 (portieri: assist ≥ 1)", showFor: ["P", "D", "C", "A"], test: (p) => (p.ruolo === "P" ? (p.assist ?? 0) >= 1 : (p.assist ?? 0) >= 6 || (p.xA ?? 0) >= 5) },
   { key: "punizioni", label: "punizioni", cls: "punizioni", desc: "tiri da punizione ≥ 5", showFor: ["D", "C", "A"], test: (p) => (p.tiri_punizione ?? 0) >= 5 },
-  { key: "rigorista", label: "rigorista", cls: "rigorista", desc: "rigori segnati ≥ 2 o xG da rigori ≥ 1.5", showFor: ["D", "C", "A"], test: (p) => (p.rigori_gol ?? 0) >= 2 || (p.xG ?? 0) - (p.xG_no_rigori ?? 0) >= 1.5 },
+  { key: "rigorista", label: "rigorista", cls: "rigorista", desc: "rigori segnati ≥ 2 o xG da rigori ≥ 1.5", showFor: ["D", "C", "A"], test: (p) => (p.rigori_gol ?? 0) >= 2 || (p.rigori_xg ?? 0) >= 1.5 },
   { key: "pararigori", label: "pararigori", cls: "pararigori", desc: "rigori parati ≥ 2", showFor: ["P"], test: (p) => (p.rigori_parati ?? 0) >= 2 },
   { key: "cartellini", label: "cartellini", cls: "cartellini", desc: "gialli ≥ 9", showFor: ["P", "D", "C", "A"], test: (p) => (p.gialli ?? 0) >= 9 },
 ];
