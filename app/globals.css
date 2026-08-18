@@ -109,6 +109,13 @@ tr.in-offerta td:first-child { box-shadow: inset 3px 0 0 #22d3ee; background: rg
 .asta-reparto th.num, .asta-reparto td.num { text-align: center; }
 .asta-reparto td:last-child { text-align: center; }
 .asta-reparto th:nth-child(5), .asta-reparto td:nth-child(5) { text-align: center; }
+.asta-reparto table { table-layout: fixed; width: 100%; }
+.asta-reparto th:nth-child(1) { width: 40%; }
+.asta-reparto th:nth-child(2) { width: 18%; }
+.asta-reparto th:nth-child(3) { width: 8%; }
+.asta-reparto th:nth-child(4) { width: 12%; }
+.asta-reparto th:nth-child(5) { width: 16%; }
+.asta-reparto th:nth-child(6) { width: 6%; }
 
 .badge { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 10px; font-weight: 600; margin-left: 4px; }
 .badge.new { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
