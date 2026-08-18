@@ -105,6 +105,10 @@ tr.in-offerta td:first-child { box-shadow: inset 3px 0 0 #22d3ee; background: rg
 .asta-reparto td.name { white-space: normal; min-width: 150px; max-width: 300px; }
 .asta-reparto td.team { white-space: normal; }
 .asta-reparto td.num, .asta-reparto th.num { min-width: 44px; }
+.asta-reparto th, .asta-reparto td { vertical-align: middle; }
+.asta-reparto th.num, .asta-reparto td.num { text-align: center; }
+.asta-reparto td:last-child { text-align: center; }
+.asta-reparto th:nth-child(5), .asta-reparto td:nth-child(5) { text-align: center; }
 
 .badge { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 10px; font-weight: 600; margin-left: 4px; }
 .badge.new { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
@@ -298,7 +302,7 @@ tr.search-match td.name .player-link { font-weight: 800; color: #fbbf24; }
 .esito-btn.perso { background: rgba(239, 68, 68, 0.12); border-color: var(--bad); color: #f87171; }
 .offerta-input {
   width: 62px; background: var(--bg); border: 1px solid var(--border); color: var(--text);
-  border-radius: 6px; padding: 4px 6px; font-size: 12px; text-align: right;
+  border-radius: 6px; padding: 4px 6px; font-size: 12px; text-align: center;
 }
 .offerta-input:focus { outline: none; border-color: var(--accent); }
 tr.offerta-vinta td { background: rgba(34, 197, 94, 0.05); }
