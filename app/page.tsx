@@ -412,6 +412,7 @@ export default function Home() {
   const [importo, setImporto] = useState("");
   const [allenatore, setAllenatore] = useState("");
   const [squadraNome, setSquadraNome] = useState("");
+  const [consigliMatch, setConsigliMatch] = useState<Record<string, string[]>>({});
   const [onboarded, setOnboarded] = useState(false);
 
   useEffect(() => {
@@ -430,6 +431,13 @@ export default function Home() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    fetch("/data/consigli_match.json")
+      .then((r) => r.json())
+      .then((d) => setConsigliMatch(d))
+      .catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -779,6 +787,15 @@ export default function Home() {
                               >
                                 {p.nome}
                               </a>
+                              {consigliMatch[p.nome]?.includes("consigliato") && (
+                                <span className="seg seg-cons" title="Consigliato dagli articoli">✓</span>
+                              )}
+                              {consigliMatch[p.nome]?.includes("sconsigliato") && (
+                                <span className="seg seg-scon" title="Sconsigliato dagli articoli">✗</span>
+                              )}
+                              {consigliMatch[p.nome]?.includes("tiratore") && (
+                                <span className="seg seg-tir" title="Tiratore calci da fermo">⚽</span>
+                              )}
                               <button
                                 className="add-btn"
                                 title="Aggiungi offerta"
@@ -821,7 +838,10 @@ export default function Home() {
           <div className="legend">
             <strong>Legenda:</strong>{" "}
             <span className="badge new">dati [squadra/campionato]</span> = statistiche dalla squadra/campionato precedente (non comparabili 1:1) ·{" "}
-            <span className="badge inj">infortunio</span> = infortunio attivo
+            <span className="badge inj">infortunio</span> = infortunio attivo ·{" "}
+            <span className="seg seg-cons">✓</span> consigliato dagli articoli ·{" "}
+            <span className="seg seg-scon">✗</span> sconsigliato ·{" "}
+            <span className="seg seg-tir">⚽</span> tiratore calci da fermo
             {BADGES.filter((b) => !b.showFor || b.showFor.includes(role)).map((b) => (
               <span key={b.key}>
                 {" · "}
