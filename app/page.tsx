@@ -165,6 +165,15 @@ const COLOR_DIR: Record<string, "asc" | "desc"> = {
   rossi: "desc",
 };
 
+function shortlistFilter(p: Player): boolean {
+  const tit = Number(p.titolarita_pct) || 0;
+  if (p.ruolo === "P") return tit >= 70 && ((Number(p.clean_sheet) || 0) >= 5 || (Number(p.rating) || 0) >= 6.8);
+  if (p.ruolo === "D") return tit >= 80 && (Number(p.rating) || 0) >= 6.6;
+  if (p.ruolo === "C") return tit >= 78 && ((Number(p.fantamedia) || 0) >= 6.0 || (Number(p.gol) || 0) + (Number(p.assist) || 0) >= 8);
+  if (p.ruolo === "A") return tit >= 75 && ((Number(p.gol) || 0) >= 8 || (Number(p.xG) || 0) >= 9);
+  return true;
+}
+
 function colorClass(
   p: Player,
   c: Col,
@@ -404,6 +413,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [team, setTeam] = useState("");
   const [badgeFilter, setBadgeFilter] = useState("");
+  const [shortlist, setShortlist] = useState(false);
   const [sortKey, setSortKey] = useState("base");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
 
@@ -539,6 +549,7 @@ export default function Home() {
       const q = query.trim().toLowerCase();
       list = list.filter((p) => p.nome.toLowerCase().includes(q));
     }
+    if (shortlist) list = list.filter(shortlistFilter);
     if (badgeFilter) {
       const b = BADGES.find((x) => x.key === badgeFilter);
       if (b) list = list.filter((p) => b.test(p));
@@ -555,7 +566,7 @@ export default function Home() {
       return String(av).localeCompare(String(bv), "it") * dir;
     });
     return list;
-  }, [players, role, team, badgeFilter, sortKey, sortDir, query]);
+  }, [players, role, team, badgeFilter, sortKey, sortDir, query, shortlist]);
 
   const queryMatch = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -724,6 +735,13 @@ export default function Home() {
           </div>
 
           <div className="badge-bar">
+            <button
+              className={"badge-filter shortlist-toggle" + (shortlist ? " active" : "")}
+              onClick={() => setShortlist(!shortlist)}
+              title="Filtra il rumore per ruolo: P tit≥70% e (CS≥5 o MV≥6.8) · D tit≥80% e MV≥6.6 · C tit≥78% e (FM≥6 o G+A≥8) · A tit≥75% e (gol≥8 o xG≥9)"
+            >
+              ⚡ Filtra rumore{shortlist ? ` (${filtered.length})` : ""}
+            </button>
             <button
               className={"badge-filter" + (badgeFilter === "" ? " active" : "")}
               onClick={() => setBadgeFilter("")}
