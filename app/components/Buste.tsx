@@ -418,20 +418,22 @@ export default function Buste({
                           >
                             {o.nome}
                           </a>
-                          {p?.injury_status && <span className="badge inj">infortunio</span>}
-                          {p && (p.ex_squadra || p.lega_storico) && <span className="badge new">{legaBadge(p)}</span>}
-                          {p && getBadges(p).map((b) => (
-                            <span key={b.key} className={"badge " + b.cls}>{b.label}</span>
-                          ))}
-                          {consigliMatch[o.nome]?.includes("consigliato") && (
-                            <span className="seg seg-cons" title="Consigliato dagli articoli">✓</span>
-                          )}
-                          {consigliMatch[o.nome]?.includes("sconsigliato") && (
-                            <span className="seg seg-scon" title="Sconsigliato dagli articoli">✗</span>
-                          )}
-                          {consigliMatch[o.nome]?.includes("tiratore") && (
-                            <span className="seg seg-tir" title="Tiratore calci da fermo">⚽</span>
-                          )}
+                          <span className="badge-line">
+                            {p?.injury_status && <span className="badge inj">infortunio</span>}
+                            {p && (p.ex_squadra || p.lega_storico) && <span className="badge new">{legaBadge(p)}</span>}
+                            {p && getBadges(p).map((b) => (
+                              <span key={b.key} className={"badge " + b.cls}>{b.label}</span>
+                            ))}
+                            {consigliMatch[o.nome]?.includes("consigliato") && (
+                              <span className="seg seg-cons" title="Consigliato dagli articoli">✓</span>
+                            )}
+                            {consigliMatch[o.nome]?.includes("sconsigliato") && (
+                              <span className="seg seg-scon" title="Sconsigliato dagli articoli">✗</span>
+                            )}
+                            {consigliMatch[o.nome]?.includes("tiratore") && (
+                              <span className="seg seg-tir" title="Tiratore calci da fermo">⚽</span>
+                            )}
+                          </span>
                         </td>
                         <td className="team">{p?.squadra ?? "–"}</td>
                         <td className="num">{p?.quotazione ?? "–"}</td>

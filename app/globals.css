@@ -101,6 +101,10 @@ tr.in-offerta td:first-child { box-shadow: inset 3px 0 0 #22d3ee; background: rg
 .seg-tir { color: #22d3ee; }
 .asta-reparto th.sortable { cursor: pointer; user-select: none; }
 .asta-reparto th.sortable:hover { color: #22d3ee; }
+.badge-line { display: block; white-space: normal; margin-top: 3px; font-weight: normal; line-height: 1.7; }
+.asta-reparto td.name { white-space: normal; min-width: 150px; max-width: 300px; }
+.asta-reparto td.team { white-space: normal; }
+.asta-reparto td.num, .asta-reparto th.num { min-width: 44px; }
 
 .badge { display: inline-block; padding: 1px 6px; border-radius: 10px; font-size: 10px; font-weight: 600; margin-left: 4px; }
 .badge.new { background: rgba(245, 158, 11, 0.15); color: var(--warn); }
