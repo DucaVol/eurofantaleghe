@@ -542,6 +542,8 @@ export default function Home() {
     [players]
   );
 
+  const nomiInOfferta = useMemo(() => new Set(offerte.map((o) => o.nome.toLowerCase())), [offerte]);
+
   const filtered = useMemo(() => {
     let list = players.filter((p) => p.ruolo === role);
     if (team) list = list.filter((p) => p.squadra === team);
@@ -549,7 +551,7 @@ export default function Home() {
       const q = query.trim().toLowerCase();
       list = list.filter((p) => p.nome.toLowerCase().includes(q));
     }
-    if (shortlist) list = list.filter(shortlistFilter);
+    if (shortlist) list = list.filter((p) => shortlistFilter(p) || nomiInOfferta.has(p.nome.toLowerCase()));
     if (badgeFilter) {
       const b = BADGES.find((x) => x.key === badgeFilter);
       if (b) list = list.filter((p) => b.test(p));
@@ -619,7 +621,6 @@ export default function Home() {
 
   const vinti = offerte.filter((o) => o.esito === "vinto");
   const spesi = vinti.reduce((s, o) => s + (Number(o.offerta) || 0), 0);
-  const nomiInOfferta = useMemo(() => new Set(offerte.map((o) => o.nome.toLowerCase())), [offerte]);
   const presiPerRuolo: Record<string, number> = { P: 0, D: 0, C: 0, A: 0 };
   vinti.forEach((o) => {
     if (presiPerRuolo[o.ruolo] !== undefined) presiPerRuolo[o.ruolo]++;
@@ -738,7 +739,7 @@ export default function Home() {
             <button
               className={"badge-filter shortlist-toggle" + (shortlist ? " active" : "")}
               onClick={() => setShortlist(!shortlist)}
-              title="Filtra il rumore per ruolo: P tit≥70% e (CS≥5 o MV≥6.8) · D tit≥80% e MV≥6.6 · C tit≥78% e (FM≥6 o G+A≥8) · A tit≥75% e (gol≥8 o xG≥9)"
+              title="Filtra il rumore per ruolo (include sempre i giocatori nelle tue offerte): P tit≥70% e (CS≥5 o MV≥6.8) · D tit≥80% e MV≥6.6 · C tit≥78% e (FM≥6 o G+A≥8) · A tit≥75% e (gol≥8 o xG≥9)"
             >
               ⚡ Filtra rumore{shortlist ? ` (${filtered.length})` : ""}
             </button>
