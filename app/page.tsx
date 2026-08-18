@@ -96,7 +96,7 @@ const ROLE_LABEL: Record<string, string> = {
 const COLUMNS: Col[] = [
   { key: "nome", label: "Giocatore", desc: "Nome nel listone EuroLeghe 2026/27" },
   { key: "squadra", label: "Squadra", desc: "Squadra di appartenenza nel listone" },
-  { key: "quotazione", label: "Quot.", num: true, dec: 0, desc: "Quotazione ufficiale" },
+  { key: "quotazione", label: "FVMp", num: true, dec: 0, desc: "Quotazione FVM dimezzata (FVM ÷ 2)" },
   { key: "rating", label: "MV", num: true, dec: 2, desc: "Media voto FotMob 2025/26 (NON è il fantavoto)" },
   { key: "fantamedia", label: "FM", num: true, dec: 2, desc: "Fantamedia 2025/26: media voto + bonus/malus (gol, assist, rigori, ammonizioni)" },
   { key: "eta", label: "Età", num: true, dec: 0, desc: "Età del giocatore" },
