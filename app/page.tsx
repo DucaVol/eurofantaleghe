@@ -715,6 +715,7 @@ export default function Home() {
           rimuoviOfferta={rimuoviOfferta}
           budget={BUDGET}
           resetOfferte={resetOfferte}
+          consigliMatch={consigliMatch}
         />
       ) : (
         <>

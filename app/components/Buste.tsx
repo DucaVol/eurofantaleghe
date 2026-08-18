@@ -11,7 +11,42 @@ type Player = {
   rating: number | null;
   fotmob_id: number | null;
   quotazione: number | null;
+  injury_status: string | null;
+  ex_squadra: string | null;
+  lega_storico: string | null;
+  gol: number | null;
+  assist: number | null;
+  xA: number | null;
+  tiri_punizione: number | null;
+  rigori_gol: number | null;
+  rigori_xg: number | null;
+  rigori_parati: number | null;
+  gialli: number | null;
 };
+
+type BadgeDef = {
+  key: string;
+  label: string;
+  cls: string;
+  test: (p: Player) => boolean;
+};
+
+const BADGES: BadgeDef[] = [
+  { key: "assistman", label: "assistman", cls: "assistman", test: (p) => (p.ruolo === "P" ? (p.assist ?? 0) >= 1 : (p.assist ?? 0) >= 6 || (p.xA ?? 0) >= 5) },
+  { key: "punizioni", label: "punizioni", cls: "punizioni", test: (p) => (p.tiri_punizione ?? 0) >= 5 },
+  { key: "rigorista", label: "rigorista", cls: "rigorista", test: (p) => (p.rigori_gol ?? 0) >= 2 || (p.rigori_xg ?? 0) >= 1.5 },
+  { key: "pararigori", label: "pararigori", cls: "pararigori", test: (p) => (p.rigori_parati ?? 0) >= 2 },
+  { key: "cartellini", label: "cartellini", cls: "cartellini", test: (p) => (p.gialli ?? 0) >= 9 },
+];
+
+function getBadges(p: Player): BadgeDef[] {
+  return BADGES.filter((b) => b.test(p));
+}
+
+function legaBadge(p: Player): string {
+  if (p.ex_squadra) return "dati " + p.ex_squadra;
+  return "dati " + (p.lega_storico ?? "");
+}
 
 const ROLE_LABEL: Record<string, string> = {
   P: "Portieri",
@@ -69,6 +104,7 @@ export default function Buste({
   rimuoviOfferta,
   budget,
   resetOfferte,
+  consigliMatch,
 }: {
   players: Player[];
   offerte: Offerta[];
@@ -77,8 +113,20 @@ export default function Buste({
   rimuoviOfferta: (i: number) => void;
   budget: number;
   resetOfferte: () => void;
+  consigliMatch: Record<string, string[]>;
 }) {
   const [modulo, setModulo] = useModulo();
+  const [sortKey, setSortKey] = useState<"nome" | "quotazione" | "offerta">("nome");
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+
+  function onSort(key: "nome" | "quotazione" | "offerta") {
+    if (sortKey === key) {
+      setSortDir((d) => (d === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir(key === "nome" ? "asc" : "desc");
+    }
+  }
 
   const vinti = offerte.filter((o) => o.esito === "vinto");
   const pending = offerte.filter((o) => o.esito === "pending");
@@ -141,9 +189,23 @@ export default function Buste({
     offerte.forEach((o, idx) => {
       if (m[o.ruolo]) m[o.ruolo].push({ idx });
     });
-    ORDINE.forEach((r) => m[r].sort((a, b) => offerte[a.idx].nome.localeCompare(offerte[b.idx].nome)));
+    const val = (idx: number): number | string => {
+      const o = offerte[idx];
+      if (sortKey === "offerta") return Number(o.offerta) || 0;
+      if (sortKey === "quotazione") return playerInfo(o.nome)?.quotazione ?? -1;
+      return o.nome;
+    };
+    const dir = sortDir === "asc" ? 1 : -1;
+    ORDINE.forEach((r) =>
+      m[r].sort((a, b) => {
+        const av = val(a.idx);
+        const bv = val(b.idx);
+        if (typeof av === "number" && typeof bv === "number") return (av - bv) * dir;
+        return String(av).localeCompare(String(bv), "it") * dir;
+      })
+    );
     return m;
-  }, [offerte]);
+  }, [offerte, players, sortKey, sortDir]);
 
   return (
     <div>
@@ -324,10 +386,16 @@ export default function Buste({
               <table>
                 <thead>
                   <tr>
-                    <th>Giocatore</th>
+                    <th className="sortable" onClick={() => onSort("nome")}>
+                      Giocatore{sortKey === "nome" && <span className="arrow">{sortDir === "asc" ? "▲" : "▼"}</span>}
+                    </th>
                     <th>Squadra</th>
-                    <th className="num">Quot.</th>
-                    <th className="num">Offerta</th>
+                    <th className="num sortable" onClick={() => onSort("quotazione")}>
+                      Quot.{sortKey === "quotazione" && <span className="arrow">{sortDir === "asc" ? "▲" : "▼"}</span>}
+                    </th>
+                    <th className="num sortable" onClick={() => onSort("offerta")}>
+                      Offerta{sortKey === "offerta" && <span className="arrow">{sortDir === "asc" ? "▲" : "▼"}</span>}
+                    </th>
                     <th>Esito</th>
                     <th></th>
                   </tr>
@@ -350,6 +418,20 @@ export default function Buste({
                           >
                             {o.nome}
                           </a>
+                          {p?.injury_status && <span className="badge inj">infortunio</span>}
+                          {p && (p.ex_squadra || p.lega_storico) && <span className="badge new">{legaBadge(p)}</span>}
+                          {p && getBadges(p).map((b) => (
+                            <span key={b.key} className={"badge " + b.cls}>{b.label}</span>
+                          ))}
+                          {consigliMatch[o.nome]?.includes("consigliato") && (
+                            <span className="seg seg-cons" title="Consigliato dagli articoli">✓</span>
+                          )}
+                          {consigliMatch[o.nome]?.includes("sconsigliato") && (
+                            <span className="seg seg-scon" title="Sconsigliato dagli articoli">✗</span>
+                          )}
+                          {consigliMatch[o.nome]?.includes("tiratore") && (
+                            <span className="seg seg-tir" title="Tiratore calci da fermo">⚽</span>
+                          )}
                         </td>
                         <td className="team">{p?.squadra ?? "–"}</td>
                         <td className="num">{p?.quotazione ?? "–"}</td>
