@@ -10,6 +10,7 @@ type Player = {
   squadra: string;
   rating: number | null;
   fotmob_id: number | null;
+  quotazione: number | null;
 };
 
 const ROLE_LABEL: Record<string, string> = {
@@ -325,6 +326,7 @@ export default function Buste({
                   <tr>
                     <th>Giocatore</th>
                     <th>Squadra</th>
+                    <th className="num">Quot.</th>
                     <th className="num">Offerta</th>
                     <th>Esito</th>
                     <th></th>
@@ -350,6 +352,7 @@ export default function Buste({
                           </a>
                         </td>
                         <td className="team">{p?.squadra ?? "–"}</td>
+                        <td className="num">{p?.quotazione ?? "–"}</td>
                         <td className="num">
                           <input
                             type="number"
