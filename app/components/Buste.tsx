@@ -150,8 +150,8 @@ export default function Buste({
   }
 
   function cognome(n: string): string {
-    const parts = n.split(" ");
-    return parts[parts.length - 1];
+    const parts = n.split(" ").filter((p) => p.length > 2 || !p.endsWith("."));
+    return parts[parts.length - 1] || n;
   }
 
   // titolari: tra i vinti, ordina per rating e prendi i need[r]
